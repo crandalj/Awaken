@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     public static Player player;
 
-    private SpriteRenderer sr;
     private Health health;
     public Stats stats;
     private Rigidbody2D rb;
@@ -19,13 +19,25 @@ public class Player : MonoBehaviour
     private float invulnCount;
     private float invulnTime;
 
+    public Item[] inventory = new Item[3];
+    private int slotSelected;
+    public Image[] slot;
+    public Image[] slotFrame;
+    public GameObject itemHeld;
+    private SpriteRenderer heldSR;
+    public GameObject fist;
+    private bool canUseItem;
+
+    private Color selectedColor = Color.red;
+    private Color unselectedColor = Color.white;
+
     // Start is called before the first frame update
     void Start()
     {
         player = this;
-        sr = gameObject.GetComponent<SpriteRenderer>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
+        heldSR = itemHeld.GetComponent<SpriteRenderer>();
         stats = new Stats(1,10,5);
         health = gameObject.GetComponent<Health>();
         facing = "right";
@@ -34,6 +46,9 @@ public class Player : MonoBehaviour
         isInvuln = false;
         invulnCount = 0;
         invulnTime = 1;
+        slotSelected = 0;
+        UpdateSlotSelected(slotSelected);
+        canUseItem = true;
     }
 
     // Update is called once per frame
@@ -43,6 +58,49 @@ public class Player : MonoBehaviour
         GetInput();
         Move();
         AnimUpdate();
+    }
+
+    private void UpdateSlotSelected(int slotnum)
+    {
+        slotFrame[slotSelected].color = unselectedColor;
+        slotSelected = slotnum;
+        slotFrame[slotSelected].color = selectedColor;
+        UpdateItemHeldSprite();
+    }
+
+    private void UpdateItemSlot()
+    {
+        // Update UI sprite
+        slot[slotSelected].sprite = inventory[slotSelected].SPRITE;
+    }
+
+    private void UpdateItemHeldSprite()
+    {
+        // Update player weapon sprite
+        if (slotSelected < inventory.Length)
+        {
+            heldSR.sprite = inventory[slotSelected].SPRITE;
+            fist.SetActive(false);
+        } else
+        {
+            heldSR.sprite = null;
+            fist.SetActive(true);
+        }
+    }
+
+    private void PickupItem(Item item)
+    {
+        if(inventory[slotSelected])
+        {
+            DropItem(inventory[slotSelected]);
+        }
+        inventory[slotSelected] = item;
+        UpdateItemSlot();
+    }
+
+    private void DropItem(Item item)
+    {
+        //TODO
     }
 
     private void InvulnCheck()
@@ -56,6 +114,11 @@ public class Player : MonoBehaviour
     private void AnimUpdate()
     {
         anim.SetFloat("velocity", moveX);
+    }
+
+    public void ActionFinished()
+    {
+        canUseItem = true;
     }
 
     void GetInput()
@@ -83,6 +146,41 @@ public class Player : MonoBehaviour
         } else
         {
             moveY = 0;
+        }
+
+        if (Input.GetKey(KeyCode.Alpha1))
+        {
+            UpdateSlotSelected(0);
+        }
+        if (Input.GetKey(KeyCode.Alpha2))
+        {
+            UpdateSlotSelected(1);
+        }
+        if (Input.GetKey(KeyCode.Alpha3))
+        {
+            UpdateSlotSelected(2);
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            UseItem();
+        }
+    }
+
+    private void UseItem()
+    {
+        if (canUseItem)
+        {
+            if (slotSelected > inventory.Length)
+            {
+
+            }
+            else
+            {
+                // attack with fist
+                anim.SetTrigger("attack");
+            }
+            canUseItem = false;
         }
     }
 
@@ -112,6 +210,18 @@ public class Player : MonoBehaviour
                 health.UpdateHealth(-enemy.stats.ATTACK);
                 isInvuln = true;
                 invulnCount = Time.time + invulnTime;
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.X))
+        {
+            if(collision.CompareTag("Item")) {
+                Debug.Log("Trying to pickup item");
+                Item item = collision.gameObject.GetComponent<Item>();
+                PickupItem(item);
             }
         }
     }

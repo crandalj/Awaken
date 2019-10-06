@@ -1,0 +1,168 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4906206216417597289
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -437841430494897406, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0038577318
+      objectReference: {fileID: 0}
+    - target: {fileID: -437841430494897406, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.34719276
+      objectReference: {fileID: 0}
+    - target: {fileID: -437841430494897406, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.48628363
+      objectReference: {fileID: 0}
+    - target: {fileID: -437841430494897406, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.12966102
+      objectReference: {fileID: 0}
+    - target: {fileID: -437841430494897406, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.28125
+      objectReference: {fileID: 0}
+    - target: {fileID: -437841430494897406, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.9375
+      objectReference: {fileID: 0}
+    - target: {fileID: -437841430494897406, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.28125
+      objectReference: {fileID: 0}
+    - target: {fileID: -437841430494897406, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.9375
+      objectReference: {fileID: 0}
+    - target: {fileID: -437841430494897406, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -437841430494897406, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.28125
+      objectReference: {fileID: 0}
+    - target: {fileID: -437841430494897406, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.9375
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316968361439811970, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_Name
+      value: Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316968361439811969, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316968361439811969, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.66755766
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316968361439811969, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.1660647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316968361439811969, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316968361439811969, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316968361439811969, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316968361439811969, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316968361439811969, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316968361439811969, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316968361439811969, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316968361439811969, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844462741349954280, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8367830406354533065, guid: f0d1f058306ed124188249d934f6f573,
+        type: 3}
+    - target: {fileID: 8844462741349954280, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.28125
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844462741349954280, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.9375
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844462741349954280, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4266794197822615276, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: NAME
+      value: Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 4266794197822615276, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: IS_WEAPON
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4266794197822615276, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: SPRITE
+      value: 
+      objectReference: {fileID: 8367830406354533065, guid: f0d1f058306ed124188249d934f6f573,
+        type: 3}
+    - target: {fileID: 4266794197822615276, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: DAMAGE
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c0e19dcdcde294e4e85d2044d2a5dedc, type: 3}

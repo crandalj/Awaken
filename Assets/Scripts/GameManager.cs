@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public GameObject StartMenu;
     public GameObject GameOverMenu;
 
+    public Item[] itemlist;
+
     public void StartButton()
     {
         MenuUI.SetActive(false);
