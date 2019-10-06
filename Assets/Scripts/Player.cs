@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
         InvulnCheck();
         GetInput();
         Move();
+        AnimUpdate();
     }
 
     private void InvulnCheck()
@@ -50,6 +51,11 @@ public class Player : MonoBehaviour
         {
             isInvuln = false;
         }
+    }
+
+    private void AnimUpdate()
+    {
+        anim.SetFloat("velocity", moveX);
     }
 
     void GetInput()
