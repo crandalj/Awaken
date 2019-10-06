@@ -1,8 +1,8 @@
 ﻿public class Stats
 {
     public int ATTACK;
-    public int HEALTH;
-    public int MAX_HEALTH;
+    public float HEALTH;
+    public float MAX_HEALTH;
     public int SPEED;
 
     public Stats(int attack, int health, int speed)

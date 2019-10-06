@@ -6,15 +6,33 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     public Image healthBar;
-    // Start is called before the first frame update
-    void Start()
+
+    private Player player;
+
+    private void Start()
     {
-        
+        player = gameObject.GetComponent<Player>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateHealth(int value)
     {
-        
+        player.stats.HEALTH += value;
+
+        if (player.stats.HEALTH > player.stats.MAX_HEALTH)
+        {
+            player.stats.HEALTH = player.stats.MAX_HEALTH;
+        }
+
+        healthBar.fillAmount = player.stats.HEALTH / player.stats.MAX_HEALTH;
+
+        DeathCheck();
+    }
+
+    private void DeathCheck()
+    {
+        if(player.stats.HEALTH <= 0)
+        {
+            //Trigger gameover
+        }
     }
 }
