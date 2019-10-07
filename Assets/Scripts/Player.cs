@@ -57,10 +57,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        InvulnCheck();
-        GetInput();
-        Move();
-        AnimUpdate();
+        if (GameManager.gm.isPlaying)
+        {
+            InvulnCheck();
+            GetInput();
+            Move();
+            AnimUpdate();
+        }
+        
     }
 
     private void UpdateSlotSelected(int slotnum)
@@ -185,6 +189,18 @@ public class Player : MonoBehaviour
                 {
                     // Health potion
                     health.UpdateHealth(10);   
+                } else if (inventory[slotSelected].EFFECT == 2)
+                {
+                    // Health up
+                    stats.HEALTH += 1;
+                    stats.MAX_HEALTH += 1;
+                } else if (inventory[slotSelected].EFFECT == 3)
+                {
+                    // Speed up
+                    stats.SPEED += 1;
+                }else if (inventory[slotSelected].EFFECT == 4)
+                {
+                    stats.ATTACK += 1;
                 }
 
                 inventory[slotSelected].Reset();
@@ -215,14 +231,13 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (!isInvuln)
         {
             if (collision.gameObject.tag == "Enemy")
             {
                 Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-                Debug.Log(stats.HEALTH);
                 health.UpdateHealth(-enemy.stats.ATTACK);
                 isInvuln = true;
                 invulnCount = Time.time + invulnTime;
@@ -230,11 +245,15 @@ public class Player : MonoBehaviour
         }
     }
 
+    public float GetWeaponDamage()
+    {
+        return inventory[slotSelected].DAMAGE + stats.ATTACK;
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.X))
         {
-
             if (collision.gameObject.tag == "Item")
             {
                 Item item = collision.gameObject.GetComponent<Item>();
@@ -242,5 +261,15 @@ public class Player : MonoBehaviour
                 Destroy(collision.gameObject);
             }
         }
+        if (!isInvuln)
+        {
+            if (collision.gameObject.tag == "Boss")
+            {
+                Boss enemy = collision.GetComponentInParent<Boss>();
+                health.UpdateHealth(-enemy.stats.ATTACK);
+                isInvuln = true;
+                invulnCount = Time.time + invulnTime;
+            }
+        } 
     }
 }

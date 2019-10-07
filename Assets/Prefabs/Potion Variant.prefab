@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 6316968361439811970, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
         type: 3}
       propertyPath: m_Name
-      value: Potion
+      value: Potion Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6316968361439811969, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
         type: 3}
@@ -67,6 +67,48 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4266794197822615276, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: NAME
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4266794197822615276, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: SPRITE
+      value: 
+      objectReference: {fileID: -6420534950463556919, guid: f0d1f058306ed124188249d934f6f573,
+        type: 3}
+    - target: {fileID: 4266794197822615276, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: EFFECT
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4266794197822615276, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: IS_WEAPON
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844462741349954280, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6420534950463556919, guid: f0d1f058306ed124188249d934f6f573,
+        type: 3}
+    - target: {fileID: 8844462741349954280, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.53125
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844462741349954280, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.6875
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844462741349954280, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -437841430494897406, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
         type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
@@ -111,43 +153,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 0.6875
-      objectReference: {fileID: 0}
-    - target: {fileID: 8844462741349954280, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -6420534950463556919, guid: f0d1f058306ed124188249d934f6f573,
-        type: 3}
-    - target: {fileID: 8844462741349954280, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.53125
-      objectReference: {fileID: 0}
-    - target: {fileID: 8844462741349954280, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.6875
-      objectReference: {fileID: 0}
-    - target: {fileID: 8844462741349954280, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4266794197822615276, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
-        type: 3}
-      propertyPath: NAME
-      value: Potion
-      objectReference: {fileID: 0}
-    - target: {fileID: 4266794197822615276, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
-        type: 3}
-      propertyPath: SPRITE
-      value: 
-      objectReference: {fileID: -6420534950463556919, guid: f0d1f058306ed124188249d934f6f573,
-        type: 3}
-    - target: {fileID: 4266794197822615276, guid: c0e19dcdcde294e4e85d2044d2a5dedc,
-        type: 3}
-      propertyPath: EFFECT
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0e19dcdcde294e4e85d2044d2a5dedc, type: 3}

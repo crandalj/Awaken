@@ -33,6 +33,7 @@ public class Health : MonoBehaviour
         if(player.stats.HEALTH <= 0)
         {
             //Trigger gameover
+            GameManager.gm.GameOver("player_dead");
         }
     }
 }

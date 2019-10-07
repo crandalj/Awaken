@@ -17,7 +17,7 @@ public class Item : MonoBehaviour
         this.NAME = "Fist";
         this.IS_WEAPON = true;
         this.SPRITE = slotDefault;
-        this.DAMAGE = 1;
+        this.DAMAGE = 0;
         this.EFFECT = 0;
     }
 }

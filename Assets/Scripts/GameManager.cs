@@ -16,8 +16,15 @@ public class GameManager : MonoBehaviour
     public GameObject MenuUI;
     public GameObject StartMenu;
     public GameObject GameOverMenu;
+    public Text GameOverTitle;
+    public Text scoreText;
+    public GameObject[] itemlist;
 
-    public Item[] itemlist;
+    public GameObject[] walls;
+
+    public GameObject boss;
+
+    private string score;
 
     public void StartButton()
     {
@@ -57,10 +64,13 @@ public class GameManager : MonoBehaviour
                     // teleport player back to spawn
                     Player.player.gameObject.transform.position = spawn.position;
                     // lock the exits
-
+                    foreach(GameObject wall in walls)
+                    {
+                        wall.SetActive(true);
+                    }
                     // wake up guardian
-
-                    // start boss time
+                    Boss bossEnemy = boss.GetComponent<Boss>();
+                    bossEnemy.TriggerAwaken();
                 }
                 timer -= Time.deltaTime;
             } else
@@ -72,14 +82,41 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void DropItem(Vector3 pos)
+    {
+        if(Random.Range(0, 100) >= 75)
+        {
+            int drop = Random.Range(0, itemlist.Length);
+            Instantiate(itemlist[drop], pos, Quaternion.identity);
+        }
+    }
+
     private void UpdateTimer()
     {
         timerUI.text = ((int)timer) + "";
     }
 
-    public void GameOver()
+    public void GameOver(string condition)
     {
+        isPlaying = false;
         // show game over menu + score if relevant
+        score = ((int)timer) + "";
+        
+
+        if(condition == "player_dead" && bossPhase)
+        {
+            GameOverTitle.text = "YOU DIED";
+            scoreText.text = "You lasted " + score + " seconds against the boss...";
+        } else if (condition == "player_dead" && !bossPhase)
+        {
+            GameOverTitle.text = "YOU DIED";
+            scoreText.text = "You were dead " + score + " seconds before the boss awakened...";
+        } else if (condition == "victory")
+        {
+            GameOverTitle.text = "BOSS DEFEATED";
+            scoreText.text = "You defeated the boss in " + score + " seconds!";
+        }
+        
         GameOverMenu.SetActive(true);
         MenuUI.SetActive(true);
     }
