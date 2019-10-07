@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public int ID;
     public string NAME;
     public bool IS_WEAPON;
     public Sprite SPRITE;
     public float DAMAGE;
     public int EFFECT;
+
+    public Sprite slotDefault;
+
+    public void Reset()
+    {
+        this.NAME = "Fist";
+        this.IS_WEAPON = true;
+        this.SPRITE = slotDefault;
+        this.DAMAGE = 1;
+        this.EFFECT = 0;
+    }
 }

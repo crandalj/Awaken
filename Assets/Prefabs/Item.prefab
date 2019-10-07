@@ -94,12 +94,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f5b1966d4bd24b4eb2648f4daa84666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 0
-  NAME: 
-  IS_WEAPON: 0
-  SPRITE: {fileID: 0}
-  DAMAGE: 0
+  IS_WEAPON: 1
+  SPRITE: {fileID: 6413020478584453356, guid: f0d1f058306ed124188249d934f6f573, type: 3}
+  DAMAGE: 3
   EFFECT: 0
+  slotDefault: {fileID: -7921052967969465774, guid: f0d1f058306ed124188249d934f6f573,
+    type: 3}
 --- !u!61 &-437841430494897406
 BoxCollider2D:
   m_ObjectHideFlags: 0

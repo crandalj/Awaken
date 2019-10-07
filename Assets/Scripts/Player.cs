@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     private float invulnCount;
     private float invulnTime;
 
-    public Item[] inventory = new Item[3];
+    public Item[] inventory;
     private int slotSelected;
     public Image[] slot;
     public Image[] slotFrame;
@@ -47,6 +47,9 @@ public class Player : MonoBehaviour
         invulnCount = 0;
         invulnTime = 1;
         slotSelected = 0;
+        inventory[0].Reset();
+        inventory[1].Reset();
+        inventory[2].Reset();
         UpdateSlotSelected(slotSelected);
         canUseItem = true;
     }
@@ -66,6 +69,11 @@ public class Player : MonoBehaviour
         slotSelected = slotnum;
         slotFrame[slotSelected].color = selectedColor;
         UpdateItemHeldSprite();
+
+        Debug.Log(inventory[slotSelected].IS_WEAPON);
+        Debug.Log(inventory[slotSelected].SPRITE);
+        Debug.Log(inventory[slotSelected].DAMAGE);
+        Debug.Log(inventory[slotSelected].EFFECT);
     }
 
     private void UpdateItemSlot()
@@ -77,12 +85,14 @@ public class Player : MonoBehaviour
     private void UpdateItemHeldSprite()
     {
         // Update player weapon sprite
-        if (slotSelected < inventory.Length)
+        if (slotSelected < inventory.Length && inventory[slotSelected].NAME != "Fist" && inventory[slotSelected].IS_WEAPON)
         {
+            Debug.Log(inventory[slotSelected]);
             heldSR.sprite = inventory[slotSelected].SPRITE;
             fist.SetActive(false);
         } else
         {
+            Debug.Log("Item is not a weapon");
             heldSR.sprite = null;
             fist.SetActive(true);
         }
@@ -90,17 +100,14 @@ public class Player : MonoBehaviour
 
     private void PickupItem(Item item)
     {
-        if(inventory[slotSelected])
-        {
-            DropItem(inventory[slotSelected]);
-        }
-        inventory[slotSelected] = item;
-        UpdateItemSlot();
-    }
+        inventory[slotSelected].NAME = item.NAME;
+        inventory[slotSelected].IS_WEAPON = item.IS_WEAPON;
+        inventory[slotSelected].SPRITE = item.SPRITE;
+        inventory[slotSelected].DAMAGE = item.DAMAGE;
+        inventory[slotSelected].EFFECT = item.EFFECT;
 
-    private void DropItem(Item item)
-    {
-        //TODO
+        UpdateItemSlot();
+        UpdateItemHeldSprite();
     }
 
     private void InvulnCheck()
@@ -171,16 +178,25 @@ public class Player : MonoBehaviour
     {
         if (canUseItem)
         {
-            if (slotSelected > inventory.Length)
+            if (slotSelected < inventory.Length && inventory[slotSelected].NAME != "Fist" && !inventory[slotSelected].IS_WEAPON)
             {
+                
+                if(inventory[slotSelected].EFFECT == 1)
+                {
+                    // Health potion
+                    health.UpdateHealth(10);   
+                }
 
+                inventory[slotSelected].Reset();
+                UpdateItemSlot();
             }
             else
             {
-                // attack with fist
+                // attack
                 anim.SetTrigger("attack");
+                canUseItem = false;
             }
-            canUseItem = false;
+            
         }
     }
 
@@ -214,14 +230,16 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if(Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.X))
+        if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.X))
         {
-            if(collision.CompareTag("Item")) {
-                Debug.Log("Trying to pickup item");
+
+            if (collision.gameObject.tag == "Item")
+            {
                 Item item = collision.gameObject.GetComponent<Item>();
                 PickupItem(item);
+                Destroy(collision.gameObject);
             }
         }
     }
